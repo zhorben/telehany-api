@@ -1,6 +1,6 @@
 {
   "apps" : [{
-    "name": "zhorben",
+    "name": "telehany-api",
     "script": "index.js",
     "instances": 1,
     "max_memory_restart": "2G",
