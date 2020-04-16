@@ -1,0 +1,29 @@
+{
+  "apps" : [{
+    "name": "zhorben",
+    "script": "index.js",
+    "instances": 1,
+    "max_memory_restart": "2G",
+    "kill_timeout": 5000,
+    "wait_ready": true,
+    "env": {
+      "NODE_ENV": "development"
+    },
+    "env_production": {
+      "NODE_ENV": "production"
+    }
+  }],
+
+  "deploy" : {
+    "production" : {
+      "key"  : "~/.ssh/id_rsa",
+      "user" : "art",
+      "host" : "46.101.141.76",
+      "ref"  : "origin/master",
+      "repo" : "git@github.com:zhorben/zz.git",
+      "path" : "/var/www/telehany-nodejs",
+      "ssh_options": "ForwardAgent=yes",
+      "post-deploy" : "mkdir -p logs && touch logs/all-logs.log && npm install --production && pm2 startOrRestart ecosystem.json --env production"
+    }
+  }
+}
