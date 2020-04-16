@@ -2,10 +2,12 @@ const User = require('../models/User');
 const Category = require('../models/Category');
 const Product = require('../models/Product');
 const Order = require('../models/Order');
+const Designer = require('../models/Designer');
 const connection = require('../libs/connection');
 const users = require('./users');
 const categories = require('./categories');
 const products = require('./products');
+const designers = require('./designers');
 
 (async () => {
   await User.deleteMany();
@@ -50,6 +52,10 @@ const products = require('./products');
       subcategory: categoriesMap[product.category].subcategories[product.subcategory],
       images: product.images,
     });
+  }
+
+  for (const designer of designers) {
+    await Designer.create(designer);
   }
 
 
