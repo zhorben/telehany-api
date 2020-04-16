@@ -2,6 +2,7 @@ const path = require('path')
 const { v4: uuidv4 } = require('uuid')
 const Koa = require('koa')
 const Router = require('koa-router')
+const cors = require('@koa/cors')
 const Session = require('./models/Session')
 const handleMongooseValidationError = require('./libs/validationErrors')
 const mustBeAuthenticated = require('./libs/mustBeAuthenticated')
@@ -20,6 +21,7 @@ const app = new Koa()
 
 app.use(require('koa-static')(path.join(__dirname, 'public')))
 app.use(require('koa-bodyparser')())
+app.use(cors({ origin: 'http://localhost:3000' }))
 
 app.use(async (ctx, next) => {
   try {

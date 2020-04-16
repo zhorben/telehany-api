@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 module.exports = {
+  port: 3001,
   server: {
     siteHost: process.env.SITE_HOST
   },

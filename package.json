@@ -4,6 +4,7 @@
   "description": "API for telehany",
   "main": "index.js",
   "dependencies": {
+    "@koa/cors": "^3.0.0",
     "aws-sdk": "^2.656.0",
     "crypto": "^1.0.1",
     "dotenv": "^8.2.0",
