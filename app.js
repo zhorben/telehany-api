@@ -22,7 +22,7 @@ const app = new Koa()
 
 app.use(require('koa-static')(path.join(__dirname, 'public')))
 app.use(require('koa-bodyparser')())
-app.use(cors({ origin: 'http://localhost:3000' }))
+app.use(cors())
 
 app.use(async (ctx, next) => {
   try {
