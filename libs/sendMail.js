@@ -8,6 +8,7 @@ const nodemailer = require('nodemailer')
 const htmlToText = require('nodemailer-html-to-text').htmlToText
 const SMTPTransport = require('nodemailer-smtp-transport')
 const StubTransport = require('nodemailer-stub-transport')
+const SesTransport = require('nodemailer-ses-transport')
 
 const Letter = require('../models/Letter')
 
